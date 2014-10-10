@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PCWAP管理系统</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="__PUBLIC__/css/bootcss.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+	<div class="row">
+	<volist name="piclist" id="vo">
+  <div class="col-xs-6 col-md-3">    
+      <img src="{$vo.pic}"  class="thumbnail" width="100">   
+  </div>
+  </volist>
+ 
+</div>
+  </body>
+  </html>

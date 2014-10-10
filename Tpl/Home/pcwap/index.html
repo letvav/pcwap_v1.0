@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <meta http-equiv="Content-Language" content="zh-CN" /> 
+  <title>{$webtitle}--{$webname}</title> 
+  <meta name="Keywords" content="{$webkey}" /> 
+  <meta name="Description" content="{$webdesc}" />  
+  <link type="text/css" rel="stylesheet" href="__PUBLIC__/pcwap/style/pcwap.css" /> 
+  <script src="__PUBLIC__/pcwap/js/jquery1.4.2.js"></script> 
+  <script src="__PUBLIC__/pcwap/js/slide2.1.js"></script> 
+   <script src="__PUBLIC__/pcwap/js/pcwap.js"></script> 
+ </head> 
+ <body> 
+ <include file=":header" />
+
+  <div class="banner"> 
+   <div class="bd"> 
+    <ul> 
+	<adlist id="1,2,3,4">
+     <li style="background:url({$adlist['adpic']}) #CCE1F3 center 0 no-repeat;"><a target="_blank" href="{$adlist['adurl']}"></a></li> 
+	</adlist>
+	</ul> 
+   </div> 
+   <div class="hd"> 
+    <ul> 
+    </ul> 
+   </div> 
+  </div> 
+  <script type="text/javascript">
+	jQuery(".banner").slide({ titCell:".hd ul", mainCell:".bd ul", effect:"fold",  autoPlay:true, autoPage:true, trigger:"click" });
+	</script>
+
+
+	
+  <div id="content">
+  
+   <div class="siteWidth"> 
+    <div class="mainContent">
+		 <div class="picScroll"> 
+	
+      <ul> 
+		<pcwap pic="1" num="10">
+       <li><a href="{$pcwap['url']}"><img src="{$pcwap['pic']}" /></a>
+		<p><a href="{$pcwap['url']}">{$pcwap['name']}</a></p>		
+	   </li>
+	   </pcwap>
+      </ul> 
+      <a class="prev"></a> 
+      <a class="next"></a> 
+     </div> 
+		 <script type="text/javascript">
+		jQuery(".picScroll").slide({ mainCell:"ul",autoPlay:true,effect:"left", vis:4, scroll:1, autoPage:true, pnLoop:false });
+		</script> 
+     </div>
+	 <div class="adSlide"> 
+      <div class="hd">
+       <ul></ul>
+      </div> 
+      <div class="bd"> 
+       <ul> 
+	   <adlist id="5,6">
+			<li><a target="_blank" href="{$adlist['adurl']}"><img src="{$adlist['adpic']}" /></a></li> 
+		</adlist>
+       
+       </ul> 
+      </div> 
+     </div> 
+     <script type="text/javascript">
+	jQuery(".adSlide").slide({ titCell:".hd ul", mainCell:".bd ul",autoPlay:true,effect:"top",autoPage:true });
+	</script> 
+   
+			
+			<div class="text-list white">
+				<h1 class="upname"><img src="__PUBLIC__/pcwap/images/dot.gif" /> 公司新闻</h1>
+				<ul class="text">
+					<pcwap pic="0" num="5">
+					<li>		
+						<span>{$pcwap['time']}</span><h2>[<a href="{$pcwap['cateurl']}">{$pcwap['catename']}</a>] <a href="{$pcwap['url']}">{$pcwap['name']}</a></h2>
+					</li>
+					</pcwap>
+				</ul>
+		
+		
+			</div>
+			
+				 <div class="side white"> 					
+						
+						<div class="rec">
+							 <h3>联系我们</h3>
+							<p><strong>{$webname}</strong></p>
+							<p>联系人：{$lianxi}</p>
+							<p>电　话：{$tel}</p>
+							<p>手　机：{$fax}</p>
+							<p>邮　箱：{$email}</p>
+							<p>地　址：{$address}</p>
+							
+						</div>
+				</div>
+			
+    <div class="friendLink"> 
+     <ul>
+		<links num="10">
+			<li><a href="{$links['url']}">{$links['key']}</a></li> 
+		</links>
+     
+     </ul> 
+    </div> 
+    <script type="text/javascript">jQuery(".friendLink").slide({ mainCell:"ul",autoPlay:true,effect:"leftMarquee",interTime:50,vis:6  });</script> 
+   </div></div>
+ 
+ <include file=":footer" />
+ </body>
+</html>

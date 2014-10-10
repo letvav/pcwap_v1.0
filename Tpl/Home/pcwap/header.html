@@ -1,0 +1,82 @@
+  <script type="text/javascript"> 
+// 设置为主页 
+function SetHome(obj,vrl){ 
+try{ 
+obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl); 
+} 
+catch(e){ 
+if(window.netscape) { 
+try { 
+netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+} 
+catch (e) { 
+alert("此操作被浏览器拒绝！n请在浏览器地址栏输入“about:config”并回车n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。"); 
+} 
+var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch); 
+prefs.setCharPref('browser.startup.homepage',vrl); 
+}else{ 
+alert("您的浏览器不支持，请按照下面步骤操作：n1.打开浏览器设置。n2.点击设置网页。n3.输入："+vrl+"点击确定。"); 
+} 
+} 
+} 
+// 加入收藏 兼容360和IE6 
+function shoucang(sTitle,sURL) 
+{ 
+try 
+{ 
+window.external.addFavorite(sURL, sTitle); 
+} 
+catch (e) 
+{ 
+try 
+{ 
+window.sidebar.addPanel(sTitle, sURL, ""); 
+} 
+catch (e) 
+{ 
+alert("加入收藏失败，请使用Ctrl+D进行添加"); 
+} 
+} 
+} 
+</script> 
+
+ <div id="topBar">
+	<div class="siteWidth">
+		<em>欢迎来到{$webname}</em>	
+		<span><a href="javascript:void(0)" onclick="shoucang(document.title,window.location)">加入收藏</a>
+            <a href="javascript:void(0)" onclick="SetHome(this,window.location)">设为首页</a>
+</span>
+	</div>
+ </div>
+  <div id="header"> 
+   <div class="logoBar"> 
+    <h1><a  href="{$domain}"><img src="{$logo}" alt="{$webname}" /></a></h1> 
+	<div class="search">
+		<form action="__GROUP__/search.php" method="get">
+		<input type="text" name="key" class="inputext" />
+		<button type="submit" id="search">搜索</button>
+		</form>
+		<span>热门搜索：<search num="5" paixu="hits desc"><a href="{$search['url']}">{$search['key']}</a></search>
+		</span>
+	</div>
+   </div> 
+   <div class="clear"></div>
+   <div class="navBar"> 
+    <ul class="nav clearfix"> 
+     <li id="m1" class="m"> <h3><a  href="/">首页</a></h3> </li> 
+		<volist name="menu" id="v1">
+	<li id="m{$i}" class="m"> <h3><a href="{$v1.url}">{$v1.catename}</a></h3> <div class="new"></div>	
+		<if condition="$v1['sub']">
+	<ul class="sub"> 
+	  	<volist name="v1['sub']" id="v2">
+       <li><a href="{$v2.url}">{$v2.catename}</a></li> 
+		</volist>
+      </ul> </if></li> 
+	 </volist>
+     
+    </ul> 
+   </div> 
+   <script type="text/javascript">
+	jQuery(".nav").slide({ type:"menu",  titCell:".m", targetCell:".sub", effect:"slideDown", delayTime:300, triggerTime:100,returnDefault:false  });
+	</script> 
+  </div> 

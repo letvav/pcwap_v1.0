@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PCWAP管理系统</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__PUBLIC__/css/bootcss.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="__PUBLIC__/js/html5shiv.min.js"></script>
+        <script src="__PUBLIC__/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+		
+		<div class="row container" style="margin-top:100px;">
+			<div class="col-md-4 col-md-offset-5">
+				<div class="panel panel-primary">				
+				  <div class="panel-heading">PCWAP后台登陆</div>
+				  <div class="panel-body">
+					<form class="form-horizontal" action="" method="post" role="form">
+					  <div class="form-group">
+						<label for="username" class="col-sm-3 control-label">用户名</label>
+						<div class="col-sm-8">
+						  <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+						</div>
+					  </div>
+					  <div class="form-group">
+						<label for="pwd" class="col-sm-3 control-label">密码</label>
+						<div class="col-sm-8">
+						  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="请输入密码">
+						</div>
+					  </div>
+					  <div class="form-group">
+						<label for="code" class="col-sm-3 control-label">验证码</label>
+						<div class="col-sm-4">
+						  <input type="text" class="form-control" id="code" name="code" placeholder="请输入验证码">
+						</div>
+						<div class="col-sm-4" id="codeshow">
+						 <img class="checkbox-inlin" src='__APP__/code.php' id="checkImg" onclick="fGetCode()"  /> <a onclick="fGetCode()">刷新</a>  
+
+						</div>
+					  </div>
+					  <div class="form-group">
+						<div class="col-sm-offset-3 col-sm-10">
+						 <button type="submit" class="btn btn-lg btn-primary">登录</button>
+						 <a href="http://wpa.qq.com/msgrd?v=3&uin=442648313&site=qq&menu=yes" class="btn" >帮助</a>
+						</div>
+					  </div>
+					</form>
+				  </div>
+				  
+					
+				</div>
+			</div>
+		</div>
+		
+		
+			<script language="javascript" type="text/javascript"> 
+				function  fGetCode()
+				{   
+				document.getElementById('checkImg').src='__APP__/Code/index'; 
+				} 
+			</script> 
+
+
+		
+  </body>
+  </html>

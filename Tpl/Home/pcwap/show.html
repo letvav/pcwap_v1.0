@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <meta http-equiv="Content-Language" content="zh-CN" /> 
+  <title><if condition="$seotitle">{$seotitle}<else />{$title}</if>--{$webname}</title> 
+  <meta name="Keywords" content="{$key}" /> 
+  <meta name="Description" content="{$desc}" />  
+  <link type="text/css" rel="stylesheet" href="__PUBLIC__/pcwap/style/pcwap.css" /> 
+  <script src="__PUBLIC__/pcwap/js/jquery1.4.2.js"></script> 
+  <script src="__PUBLIC__/pcwap/js/slide2.1.js"></script> 
+  <script src="__PUBLIC__/pcwap/js/pcwap.js"></script> 
+ </head> 
+ <body> 
+ <include file=":header" />
+		
+		
+		<div class="siteWidth">
+			<div class="daohan">
+				您的位置：<a href="">首页</a> > {$daohan}
+			</div>
+			<div class="fl">
+			<div class="text-list">
+				<h3 class="upname"><img src="__PUBLIC__/pcwap/images/dot.gif" /> {$catename}</h3>
+					<div class="content">
+						<h1 class="title">{$title}</h1>
+						<div class="tags">
+							<span>更新时间：{$time}</span>
+							<span>点击：{$hits}</span>
+							<span>评论：{$revs}</span>
+							<span>标签：{$tag}</span>
+						</div>
+						<div class="diy">
+							<ul>
+								<volist name="diylist" id="vo">
+									<li><span>{$vo.diykey}：</span>{$vo.value}</li>
+								</volist>
+							</ul>
+						</div>
+						<div class="con">
+							{$content}
+						</div>
+						<div class="updown">
+							<p>上一篇：<a href="{$prev.url}">{$prev.name}</a></p>
+							<p>下一篇：<a href="{$next.url}">{$next.name}</a></p>
+						</div>
+					</div>
+		
+			</div>
+			<div class="clear"></div>
+			<div class="text-list">
+				<h3 class="upname"><img src="__PUBLIC__/pcwap/images/dot.gif" /> 商品评论</h3>
+				<div class="revlist">
+					<volist name="book" id="vo" empty="没有评论">
+						<dl>
+							<dt><img src="__PUBLIC__/pcwap/images/head.jpg" /><br />{$vo.name} </dt>
+						
+							<dd>{$vo.content}<span>{:date('Y-m-d',$vo['time'])}</span></dd>
+						</dl>
+					</volist>
+				</div>
+				
+			</div>
+			<div class="clear"></div>
+			<if condition="$isrev eq '1'">
+				 <div class="text-list">
+				<h3 class="upname"><img src="__PUBLIC__/pcwap/images/dot.gif" /> 发表评论</h3>
+				<div class="revlist">
+					<form action="__GROUP__/book.php" method="post" >
+						<p class="input"><span>称呼：</span><input type="text" name="name"  class="inputext" /></p>
+						<p class="input"><span>邮箱：</span><input type="text" name="email" 	class="inputext" /></p>
+						<p class="input"><span>电话：</span><input type="text" name="tel"  class="inputext" /></p>
+						<p class="t"><textarea name="content" id="con" class="textarea" ></textarea></p>
+						<input type="hidden" name="infoid" value="{$infoid}" />
+						<p><input type="button" class="button" id="postrev" value="发表评论" /></p>
+					</form>
+				</div>
+				
+			</div>
+			</if>
+			</div>
+			
+			<div class="side"> 					
+						<div class="rec">
+							 <h3>随机推荐</h3>
+							 <ul>
+								<pcwap paixu="rand()"  num="5" >
+									<li><span>>></span><a href="{$pcwap['url']}" >{$pcwap[name]|msubstr=###,0,10}</a></li>
+								</pcwap>
+							 </ul>
+						</div>
+						<div class="rec">
+							 <h3>随机标签</h3>
+							 <ul>
+								<taglist paixu="rand()"  num="10" >
+									<li><span>>></span><a href="{$taglist['url']}" >{$taglist['tag']}</a></li>
+								</taglist>
+							 </ul>
+						</div>
+						<div class="rec">
+							 <h3>联系我们</h3>
+							<p><strong>{$webname}</strong></p>
+							<p>联系人：{$lianxi}</p>
+							<p>电　话：{$tel}</p>
+							<p>手　机：{$fax}</p>
+							<p>邮　箱：{$email}</p>
+							<p>地　址：{$address}</p>
+							
+						</div>
+				</div>
+				</div>
+		<div class="clear"></div>
+		
+ <include file=":footer" />
+ </body>
+ </html>

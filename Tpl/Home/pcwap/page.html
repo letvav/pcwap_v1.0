@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <meta http-equiv="Content-Language" content="zh-CN" /> 
+  <title><if condition="$seotitle">{$seotitle}<else />{$title}</if> <if condition="$p gt '1'">第{$p}页</if>--{$webname}</title> 
+  <meta name="Keywords" content="{$key}" /> 
+  <meta name="Description" content="{$desc}  <if condition="$p gt '1'">第{$p}页</if>" />  
+  <link type="text/css" rel="stylesheet" href="__PUBLIC__/pcwap/style/pcwap.css" /> 
+  <script src="__PUBLIC__/pcwap/js/jquery1.4.2.js"></script> 
+  <script src="__PUBLIC__/pcwap/js/slide2.1.js"></script>
+   <script src="__PUBLIC__/pcwap/js/pcwap.js"></script> 
+ </head> 
+ <body> 
+ <include file=":header" />
+		
+		
+		<div class="siteWidth">
+			<div class="daohan">
+				您的位置：<a href="">首页</a> > {$daohan}
+			</div>
+			<div class="text-list">
+				<h3 class="upname"><img src="__PUBLIC__/pcwap/images/dot.gif" /> {$title}</h3>
+				<div class="content">
+						<h1 class="title">{$title}</h1>
+						<div class="con">
+							{$content}
+						</div>
+				</div>
+				
+		
+			</div>
+			
+				 <div class="side"> 					
+						<div class="rec">
+							 <h3>相关推荐</h3>
+							 <ul>
+								<volist name="catesub" id="vo">
+									<li><span>>></span><a href="{$vo.url}" >{$vo.catename}</a></li>
+								</volist>
+							 </ul>
+						</div>
+						<div class="rec">
+							 <h3>联系我们</h3>
+							<p><strong>{$webname}</strong></p>
+							<p>联系人：{$lianxi}</p>
+							<p>电　话：{$tel}</p>
+							<p>手　机：{$fax}</p>
+							<p>邮　箱：{$email}</p>
+							<p>地　址：{$address}</p>
+							
+						</div>
+				</div>
+			</div>
+		<div class="clear"></div>
+ 
+ <include file=":footer" />
+ </body>
+ </html>
