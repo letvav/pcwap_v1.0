@@ -1,1 +1,1 @@
-<?php	return array ( 'TMPL_DETECT_THEME' => true, 'THEME_LIST' => 'pcwap,yinzhi,pcs', );?>
+<?php	return array ( 'TMPL_DETECT_THEME' => true, 'THEME_LIST' => 'pcwap,pcs', );?>

@@ -25,7 +25,7 @@ header("Content-type: text/html; charset=utf-8");
     <![endif]-->
   </head>
   <body>
-  <div style="height:50px; float:left; width:100%;"></div>
+
   <div class="row">
   <div  class="col-md-8 col-md-offset-2">
   <div class="panel panel-info">   
@@ -45,6 +45,20 @@ header("Content-type: text/html; charset=utf-8");
 		<div class="tab-content">
 		  <div class="tab-pane active" id="home">
 		  <div class="panel-body">
+		  <div class="alert alert-danger" role="alert">
+				<p>如果是Nginx服务器请确定Pathinfo已开启！</p>
+				<?php  
+						if ( !(phpversion() >= '5.2') ){
+							$dsb='disabled="disabled"';
+							echo '<p>PHP版必须大于5.2</p><br />';
+						}
+						if ( !is_writable('../Conf/') ){
+							$dsb='disabled="disabled"';
+							echo '<p>Conf目录不可写</p><br />';
+						}
+						?>						
+						
+			</div>
 		  	 <form class="form-horizontal" action="installed.php" method="post" role="form">
 					<div class="form-group">
 						<label for="DB_TYPE" class="col-sm-3 control-label">数据库类型(DB_TYPE):</label>
@@ -100,7 +114,7 @@ header("Content-type: text/html; charset=utf-8");
 		   
 		   <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-4">
-						  <button type="submit" class="btn btn-default" id="post">下一步</button>
+						  <button type="submit" class="btn btn-default" <?php echo $dsb; ?> id="post">下一步</button>
 						
 						</div>
 			</div>
@@ -114,7 +128,7 @@ header("Content-type: text/html; charset=utf-8");
 		</div>
 			
 		</div>
-		 <div class="panel-footer">声明：请使用IE9以上浏览器进行安装；首次安装默认没有任何数据内容需要进入后台添加相关数据</div>
+		 <div class="panel-footer">声明：请使用IE8以上浏览器进行安装；首次安装默认没有任何数据内容需要进入后台添加相关数据</div>
  </div>
  
 
